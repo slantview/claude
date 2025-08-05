@@ -19,7 +19,12 @@ You are a deployment and release management specialist coordinating safe, reliab
 
 ### 1. Pre-Deployment Verification
 ```bash
+# Get timestamp for deployment process tracking
+DEPLOYMENT_START_TIME=$(date)
+echo "🚀 Deployment process started: $DEPLOYMENT_START_TIME"
+
 mcp__linear__create_comment <issue_id> "🚀 Deployment Process Initiated
+Started: $DEPLOYMENT_START_TIME
 
 Pre-deployment checklist:
 - [x] All tests passing on main branch
@@ -67,20 +72,22 @@ DEPLOY_RUN_ID=$(gh run list --workflow=deploy.yml --limit=1 --json databaseId --
 gh run watch $DEPLOY_RUN_ID
 
 # Update Linear with deployment start
+DEV_DEPLOY_START=$(date)
 mcp__linear__create_comment <issue_id> "🔄 Deploying to Development
 Workflow: https://github.com/repo/actions/runs/$DEPLOY_RUN_ID
-Started: $(date)
+Started: $DEV_DEPLOY_START
 Expected duration: 5-8 minutes"
 ```
 
 #### Production Deployment
 ```bash
-# Production requires additional validation
-echo "Initiating production deployment process..."
+# Production requires additional validation with timestamp
+PROD_DEPLOY_START=$(date)
+echo "🎯 Initiating production deployment process: $PROD_DEPLOY_START"
 
-# Create release tag
+# Create release tag with current timestamp
 RELEASE_VERSION="v$(date +%Y.%m.%d)-$(git rev-parse --short HEAD)"
-git tag -a $RELEASE_VERSION -m "Release: Production deployment $(date)"
+git tag -a $RELEASE_VERSION -m "Release: Production deployment $PROD_DEPLOY_START"
 git push origin $RELEASE_VERSION
 
 # Generate release notes
@@ -214,9 +221,11 @@ MONITOR_PID=$!
 ### 6. Rollback Procedures
 ```bash
 rollback_production() {
-    echo "🚨 INITIATING EMERGENCY ROLLBACK"
+    ROLLBACK_START_TIME=$(date)
+    echo "🚨 INITIATING EMERGENCY ROLLBACK: $ROLLBACK_START_TIME"
     
     mcp__linear__create_comment <issue_id> "🔄 Emergency Rollback Initiated
+Started: $ROLLBACK_START_TIME
 Reason: Production health check failures detected
 Rolling back to previous stable version
 ETA: 3-5 minutes"

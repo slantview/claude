@@ -205,6 +205,28 @@ Available MCP servers for enhanced functionality:
 - `@notion` - Knowledge management and documentation  
 - `@exa` - Advanced web search and research
 - `@figma` - Design extraction (requires desktop app)
+- `@context7` - **MANDATORY** up-to-date library documentation and version lookups
+
+### Context7 Documentation Requirements
+
+**ALWAYS use Context7 MCP for library documentation lookups:**
+- **Version Verification**: Check latest versions before implementing dependencies
+- **API Documentation**: Retrieve current API patterns and best practices
+- **Code Examples**: Get up-to-date code snippets and implementation patterns
+- **Breaking Changes**: Verify compatibility between versions
+- **Framework Updates**: Check for new features and deprecated methods
+
+**Context7 Usage Pattern:**
+1. **resolve-library-id** - Convert library names to Context7-compatible IDs
+2. **get-library-docs** - Fetch comprehensive documentation with examples
+3. **Version-Specific Lookups** - Use `/org/project/version` format for specific versions
+
+**Required for ALL library references:**
+- New dependency additions
+- Framework upgrades
+- API integrations
+- Third-party service implementations
+- Package manager configurations
 
 Additional tool integrations:
 - `gh CLI` - GitHub repository management
@@ -219,6 +241,7 @@ Additional tool integrations:
 - **Secret Exposure**: No API keys, tokens, or sensitive data in commits/comments
 - **Generic Commits**: Avoid "fix", "update", "changes" without specific context
 - **Direct Main Commits**: All changes must go through PR process
+- **Outdated Documentation**: Never reference library docs without Context7 verification
 
 ## Error Recovery
 

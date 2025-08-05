@@ -2,6 +2,12 @@
 
 Quick command to post progress updates to Linear with product/project focus.
 
+```bash
+# Get update timestamp for accurate Linear tracking
+LINEAR_UPDATE_TIME=$(date)
+echo "📋 /project:update-linear started: $LINEAR_UPDATE_TIME"
+```
+
 ## Communication Guidelines
 **Linear is for Product/Project Updates:**
 - Focus on user-facing features and business value

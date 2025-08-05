@@ -2,6 +2,12 @@
 
 Execute the task completion and verification workflow:
 
+```bash
+# Get task completion start timestamp
+COMPLETE_TASK_START=$(date)
+echo "✅ /project:complete-task started: $COMPLETE_TASK_START"
+```
+
 ## Step 1: Gather Results
 Collect outputs from all sub-agents:
 - Frontend deliverables

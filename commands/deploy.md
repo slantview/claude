@@ -6,6 +6,12 @@ Execute deployment workflow to development or production environments.
 Call this command when code is ready for deployment after QA approval.
 
 ## Step 1: Pre-Deployment Verification
+```bash
+# Get deployment start timestamp
+DEPLOY_CMD_START=$(date)
+echo "🚀 /project:deploy started: $DEPLOY_CMD_START"
+```
+
 Check readiness:
 - [ ] All tests passing
 - [ ] PR merged to main

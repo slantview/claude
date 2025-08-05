@@ -4,7 +4,9 @@ Execute this complete initialization workflow:
 
 ## Step 0: Configure Git Identity (CRITICAL)
 ```bash
-# Check current git configuration
+# Get current timestamp and check git configuration
+COOK_START_TIME=$(date)
+echo "🚀 /cook initialization started: $COOK_START_TIME"
 echo "Current git user: $(git config user.name)"
 echo "Current git email: $(git config user.email)"
 

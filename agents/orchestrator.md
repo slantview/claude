@@ -17,9 +17,12 @@ You are the master orchestrator coordinating all development workflows with Line
 
 ## Critical Pre-Flight Checks
 
-### Git Identity Verification (MANDATORY)
+### Timestamp and Git Identity Verification (MANDATORY)
 ```bash
-# CRITICAL: Check git identity before any work
+# CRITICAL: Get current timestamp and check git identity before any work
+CURRENT_TIME=$(date)
+echo "🕐 Orchestration started: $CURRENT_TIME"
+
 GIT_USER=$(git config user.name)
 GIT_EMAIL=$(git config user.email)
 
@@ -42,11 +45,16 @@ fi
 
 ### 1. Task Initialization
 ```bash
+# Get current timestamp for accurate tracking
+TASK_START_TIME=$(date)
+echo "📋 Task initialization started: $TASK_START_TIME"
+
 # Get Linear ticket details
 mcp__linear__get_issue <issue_id>
 
-# Update Linear with orchestrator start
+# Update Linear with orchestrator start including timestamp
 mcp__linear__create_comment <issue_id> "🎯 Development coordination initiated
+Started: $TASK_START_TIME
 Analyzing requirements and preparing execution plan..."
 ```
 
@@ -130,8 +138,10 @@ Phase: [Development/Testing/Deployment]
 
 ## Daily Coordination
 ```bash
-# Daily status aggregation
+# Daily status aggregation with timestamp
+DAILY_UPDATE_TIME=$(date)
 mcp__linear__create_comment <issue_id> "📅 Daily Status
+Updated: $DAILY_UPDATE_TIME
 
 frontend: XX% complete
 backend: XX% complete

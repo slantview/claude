@@ -3,6 +3,12 @@
 Execute comprehensive test suite and report results:
 
 ## Step 1: Pre-Test Setup
+```bash
+# Get test execution start timestamp
+TEST_CMD_START=$(date)
+echo "🧪 /project:run-tests started: $TEST_CMD_START"
+```
+
 1. Ensure clean test environment
 2. Check test dependencies
 3. Clear test cache if needed

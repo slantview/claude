@@ -19,7 +19,10 @@ You are a GitHub repository management specialist coordinating all git workflows
 
 ### Pre-Commit Identity Verification
 ```bash
-# MANDATORY: Verify git identity before any commits
+# MANDATORY: Get timestamp and verify git identity before any commits
+COMMIT_TIME=$(date)
+echo "🔐 Pre-commit verification started: $COMMIT_TIME"
+
 CURRENT_USER=$(git config user.name)
 CURRENT_EMAIL=$(git config user.email)
 
@@ -63,10 +66,12 @@ BRANCH_NAME="${USERNAME}/${TICKET_ID}"
 git checkout -b "$BRANCH_NAME"
 git push -u origin "$BRANCH_NAME"
 
-# Update Linear with branch information
+# Update Linear with branch information including timestamp
+BRANCH_CREATED_TIME=$(date)
 mcp__linear__create_comment <issue_id> "🔗 Development branch created
 Branch: $BRANCH_NAME
-Repository: $(git remote get-url origin)"
+Repository: $(git remote get-url origin)
+Created: $BRANCH_CREATED_TIME"
 ```
 
 ### 2. Commit Strategy
@@ -180,8 +185,10 @@ gh pr comment --body "## Implementation Update
 - Documentation updated in /docs/api/
 - Load testing scheduled for tomorrow"
 
-# Update Linear with development progress
+# Update Linear with development progress including timestamp
+PROGRESS_UPDATE_TIME=$(date)
 mcp__linear__create_comment <issue_id> "🔄 Development Progress
+Updated: $PROGRESS_UPDATE_TIME
 
 GitHub PR: [PR URL]
 Implementation: 85% complete
