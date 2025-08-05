@@ -1,0 +1,39 @@
+{
+  "name": "claude-orchestration-system",
+  "version": "1.0.0",
+  "description": "Comprehensive orchestration system for managing specialized AI sub-agents with Linear task management integration",
+  "main": "dist/install.js",
+  "scripts": {
+    "build": "tsc",
+    "install-all": "npm run build && node dist/install.js",
+    "backup": "npm run build && node dist/install.js backup",
+    "dev": "ts-node src/install.ts"
+  },
+  "keywords": [
+    "claude-code",
+    "orchestration",
+    "agents",
+    "linear",
+    "automation"
+  ],
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slantview/claude-orchestration-system.git"
+  },
+  "license": "MIT"
+}
