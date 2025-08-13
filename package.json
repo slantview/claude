@@ -5,7 +5,7 @@
   "main": "dist/install.js",
   "scripts": {
     "build": "tsc",
-    "install-all": "npm run build && node dist/install.js",
+    "install-all": "npm run build && node dist/install.js install",
     "backup": "npm run build && node dist/install.js backup",
     "dev": "ts-node src/install.ts"
   },
