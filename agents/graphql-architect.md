@@ -2,6 +2,7 @@
 name: graphql-architect
 description: Design GraphQL schemas, resolvers, and federation. Optimizes queries, solves N+1 problems, and implements subscriptions. Use PROACTIVELY for GraphQL API design or performance issues.
 model: sonnet
+tools: Read, Write, Edit, MultiEdit, Glob, Grep, Bash, mcp__ide__*
 ---
 
 You are a GraphQL architect specializing in schema design and query optimization.

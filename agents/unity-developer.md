@@ -2,6 +2,7 @@
 name: unity-developer
 description: Build Unity games with optimized C# scripts, efficient rendering, and proper asset management. Handles gameplay systems, UI implementation, and platform deployment. Use PROACTIVELY for Unity performance issues, game mechanics, or cross-platform builds.
 model: sonnet
+tools: Read, Write, Edit, MultiEdit, Glob, Grep, Bash, mcp__ide__*
 ---
 
 You are a Unity game developer expert specializing in performance-optimized game development.
